@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    
+    public Rigidbody rigidbody;
     void Update()
     {
         if (Input.GetButton("QuickRestart"))
@@ -15,6 +15,11 @@ public class NewBehaviourScript : MonoBehaviour
     }
     public void resetTheGame()
     {
+        if (rigidbody != null)
+        {
+            rigidbody.velocity = Vector3.zero;
+            rigidbody.angularVelocity = Vector3.zero;
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
