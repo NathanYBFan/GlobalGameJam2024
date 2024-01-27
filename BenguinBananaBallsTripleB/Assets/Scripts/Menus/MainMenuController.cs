@@ -23,7 +23,6 @@ public class MainMenuController : MonoBehaviour
 
     public void RealPlayButtonPressed(string nextSceneToload)
     {
-        GameManager._Instance.StartGame();
         LevelLoadManager._Instance.StartLoadNewLevel(LevelLoadManager._Instance.LevelNamesList[1]);
     }
 }
