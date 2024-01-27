@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     private GameObject playerRootObject;
 
     public bool InGame { get { return inGame; } set { inGame = value; } }
-    public GameObject PlayerRootObject {  get { return playerRootObject; } set {  playerRootObject = value; } }
+    public GameObject PlayerRootObject { get { return playerRootObject; } set {  playerRootObject = value; } }
 
     private void Awake()
     {
