@@ -1241,7 +1241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ab225c25ed59cc49a4285a08eec8164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target_Offset: {x: 0, y: -4, z: -8}
+  target_Offset: {x: 0, y: 2, z: -8}
 --- !u!114 &1406339403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1745,7 +1745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inGame: 0
-  playerRootObject: {fileID: 245438528}
+  playerRootObject: {fileID: 1120000965}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

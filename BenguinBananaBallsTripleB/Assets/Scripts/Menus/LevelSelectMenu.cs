@@ -9,5 +9,6 @@ public class LevelSelectMenu : MonoBehaviour
     {
         if (levelIndex > nameOfLevelsToLoad.Length) return;
         LevelLoadManager._Instance.StartLoadNewLevel(nameOfLevelsToLoad[levelIndex]);
+        GameManager._Instance.StartGame();
     }
 }

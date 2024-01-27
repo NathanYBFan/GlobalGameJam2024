@@ -77,7 +77,9 @@ public class PlayerBody : MonoBehaviour
 			else isGrounded = false;
 		}
 
-	}
+        rb.AddForce(Vector3.down * -9.8f, ForceMode.Force);
+
+    }
 	/// <summary>
 	/// This method makes the player jump (called in animationevent).
 	/// </summary>
