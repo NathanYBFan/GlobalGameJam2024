@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
 	private IEnumerator LifetimeClock()
 	{
 		yield return new WaitForSeconds(lifeTime);
-		Destroy(gameObject);
+		Destroy(transform.parent.gameObject);
 		yield break;
 	}
 	// Update is called once per frame

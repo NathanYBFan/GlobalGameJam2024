@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 	public Vector3 MovementDirection { get { return movementDirection; } }
 	private bool hasJumped = false;
 	public bool HasJumped { get { return hasJumped; } }
+	public bool inverted = false;
 
     void Update()
     {
@@ -16,7 +17,10 @@ public class PlayerController : MonoBehaviour
 	/// </summary>
 	private void CheckMovementVector()
 	{
+		if (!inverted)
 		movementDirection = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
+		else
+			movementDirection = new Vector3(-Input.GetAxis("Horizontal"), 0, 0);
 
 		if (Input.GetButtonDown("Jump")) hasJumped = true;
 		else hasJumped = false;
