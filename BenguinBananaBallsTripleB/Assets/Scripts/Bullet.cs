@@ -8,6 +8,10 @@ public class Bullet : MonoBehaviour
 	float lifeTime = 5f;
 	[SerializeField]
 	float movementSpeed = 10f;
+	[SerializeField]
+	private int damage = 1;
+	[SerializeField]
+	private GameObject parent;
     // Start is called before the first frame update
     void Awake()
     {
@@ -22,12 +26,24 @@ public class Bullet : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-		transform.position += transform.right * movementSpeed * Time.deltaTime;
+		parent.transform.position += transform.right * movementSpeed * Time.deltaTime;
 	}
     public void FiredBullet(Transform playerRotation)
     {
-		Vector3 bulletRot = transform.rotation.eulerAngles;
+		Vector3 bulletRot = parent.transform.rotation.eulerAngles;
 		bulletRot.y = playerRotation.rotation.eulerAngles.y;
-		transform.rotation = Quaternion.Euler(bulletRot);
+		parent.transform.rotation = Quaternion.Euler(bulletRot);
 	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+        if (!other.CompareTag("Player"))
+        {
+			Damage damageComponent = other.GetComponent<Damage>();
+			if (damageComponent != null)
+			{
+				damageComponent.TakeDamage(damage);
+			}
+        }
+    }
 }
