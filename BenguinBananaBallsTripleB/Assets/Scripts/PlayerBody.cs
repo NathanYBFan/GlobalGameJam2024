@@ -64,7 +64,7 @@ public class PlayerBody : MonoBehaviour
 	private void PerformJump()
 	{
 		isJumping = true;
-		rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+		rb.AddForce(Vector3.up * jumpHeight * rb.mass, ForceMode.Impulse);
 		Invoke("ResetJump", 0.45f);
 	}
 	/// <summary>
