@@ -8,6 +8,6 @@ public class CameraFollowPlayer : MonoBehaviour
     void Update()
     {
         // transform.position = Vector3.Lerp(transform.position, GameManager._Instance.PlayerRootObject.transform.position + target_Offset, 0.1f);
-        transform.position = Vector3.Lerp(transform.position, GameManager._Instance.PlayerRootObject.transform.position + target_Offset, 0.1f);
+        transform.position = Vector3.Lerp(transform.position, GameManager._Instance.PlayerRootObject.transform.position + target_Offset, 0.75f);
     }
 }

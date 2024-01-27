@@ -23,11 +23,13 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        playerRootObject.SetActive(true);
+        playerRootObject.transform.position = Vector3.zero;
+        playerRootObject.transform.parent.gameObject.SetActive(true);
     }
 
     public void ExitGame()
     {
-        playerRootObject.SetActive(false);
+        playerRootObject.transform.position = Vector3.zero;
+        playerRootObject.transform.parent.gameObject.SetActive(false);
     }
 }

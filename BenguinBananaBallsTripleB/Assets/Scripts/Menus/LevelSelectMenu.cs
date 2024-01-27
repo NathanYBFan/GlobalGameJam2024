@@ -8,7 +8,6 @@ public class LevelSelectMenu : MonoBehaviour
     public void LevelSelected(int levelIndex)
     {
         if (levelIndex > nameOfLevelsToLoad.Length) return;
-        LevelLoadManager._Instance.StartLoadNewLevel(nameOfLevelsToLoad[levelIndex]);
-        GameManager._Instance.StartGame();
+        LevelLoadManager._Instance.StartLoadNewLevel(nameOfLevelsToLoad[levelIndex], true);
     }
 }

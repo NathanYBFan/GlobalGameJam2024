@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -37,13 +36,19 @@ public class Bullet : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-        if (!other.CompareTag("Player"))
-        {
-			Damage damageComponent = other.GetComponent<Damage>();
-			if (damageComponent != null)
-			{
-				damageComponent.TakeDamage(damage);
-			}
+		if (other.CompareTag("Player")) return;
+		
+		if (other.CompareTag("UIInteractable"))
+            other.GetComponent<ExpandUISingle>().ExpandUI();
+
+		else
+		{
+            Damage damageComponent = other.GetComponent<Damage>();
+            if (damageComponent != null)
+            {
+                damageComponent.TakeDamage(damage);
+            }
         }
-    }
+		
+}
 }

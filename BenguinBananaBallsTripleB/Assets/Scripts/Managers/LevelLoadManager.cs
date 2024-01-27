@@ -39,13 +39,13 @@ public class LevelLoadManager : MonoBehaviour
     private void Start()
     {
         if (!loadLevelOnStart) return;
-        StartLoadNewLevel(levelNamesList[0]);
+        StartLoadNewLevel(levelNamesList[0], false);
     }
 
     // Load a new level method
-    public void StartLoadNewLevel(string levelName)
+    public void StartLoadNewLevel(string levelName, bool enteringLevel)
     {
-        StartCoroutine(LoadLevel(levelName));
+        StartCoroutine(LoadLevel(levelName, enteringLevel));
     }
 
     public void LoadMenuOverlay(string menuName)
@@ -62,7 +62,7 @@ public class LevelLoadManager : MonoBehaviour
     }
 
     // Coroutine to load level properly
-    private IEnumerator LoadLevel(string sceneToLoad)
+    private IEnumerator LoadLevel(string sceneToLoad, bool enteringLevel)
     {
         isLoadingLevel = true;
 
@@ -94,6 +94,11 @@ public class LevelLoadManager : MonoBehaviour
 
         isLoadingLevel = false;
         loadingScreen.gameObject.SetActive(false);
+
+        if (enteringLevel)
+            GameManager._Instance.StartGame();
+        else
+            GameManager._Instance.ExitGame();
 
         yield break;
     }

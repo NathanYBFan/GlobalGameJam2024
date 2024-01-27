@@ -5,16 +5,7 @@ public class ExpandUISingle : MonoBehaviour
     public float expansionRate = 0.1f;
     public float maxSize = 300f;
 
-    void Update()
-    {
-        
-        if (Input.GetMouseButtonDown(0)) 
-        {
-            ExpandUI();
-        }
-    }
-
-    void ExpandUI()
+    public void ExpandUI()
     {
         Vector3 newSize = transform.localScale + Vector3.one * expansionRate;
 

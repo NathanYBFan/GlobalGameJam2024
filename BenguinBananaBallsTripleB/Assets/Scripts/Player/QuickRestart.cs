@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    public Rigidbody rigidbody;
+    public Rigidbody rb;
     void Update()
     {
         if (Input.GetButton("QuickRestart"))
@@ -15,10 +13,10 @@ public class NewBehaviourScript : MonoBehaviour
     }
     public void resetTheGame()
     {
-        if (rigidbody != null)
+        if (rb != null)
         {
-            rigidbody.velocity = Vector3.zero;
-            rigidbody.angularVelocity = Vector3.zero;
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
