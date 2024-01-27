@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerBody : MonoBehaviour
 {
+
 	[SerializeField]
 	private GameObject body;
 	private PlayerController controller;
@@ -11,10 +12,13 @@ public class PlayerBody : MonoBehaviour
 	[SerializeField]
 	private int jumpHeight = 100;
 	[SerializeField]
-	private int moveSpeed = 20;
-
+	private int moveSpeed = 20;	
 	private Rigidbody rb;
 	private bool isGrounded = true, isJumping = false, hasJumped = false, isDying = false, canMove = true, flip = false;
+	private Vector3 lastCheckpoint;
+
+	private Vector3 spawnPoint;
+	public Vector3 LastCheckpoint { get { return lastCheckpoint; } set {  lastCheckpoint = value; } }
 
 	private void Awake()
 	{
@@ -25,14 +29,29 @@ public class PlayerBody : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-
+		spawnPoint = transform.position;
+		lastCheckpoint = spawnPoint;
+	}
+	public void OnReset()
+	{
+		lastCheckpoint = spawnPoint;
 	}
 
+	private void Death()
+	{
+		transform.position = lastCheckpoint;
+		flip = false;
+	}
 	// Update is called once per frame
 	void Update()
 	{
 		UpdateRotations();
 		if (controller.HasJumped && isGrounded) PerformJump();
+
+		if (Input.GetKeyDown(KeyCode.Q))
+		{
+			Death();
+		}
 
 	}
 	private void FixedUpdate()
