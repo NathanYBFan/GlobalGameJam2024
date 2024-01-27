@@ -16,7 +16,7 @@ namespace Editor.Editor
         [MenuItem(menuPath, priority = 0)]
         public static void ShowMenuItem()
         {
-            SetIconWindow window = (SetIconWindow)EditorWindow.GetWindow(typeof(SetIconWindow));
+            SetIconWindow window = (SetIconWindow)GetWindow(typeof(SetIconWindow));
             window.titleContent = new("Set Icon");
             window.Show();
         }
@@ -76,11 +76,10 @@ namespace Editor.Editor
                     }
                 }
 
-                if (GUILayout.Button("Apply", GUILayout.Width(100)))
-                {
-                    ApplyIcon(icons[selectedIcon]);
-                    Close();
-                }
+                if (!GUILayout.Button("Apply", GUILayout.Width(100))) return;
+                
+                ApplyIcon(icons[selectedIcon]);
+                Close();
             }
         }
 
