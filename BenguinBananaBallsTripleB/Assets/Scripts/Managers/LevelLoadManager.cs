@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,14 +11,17 @@ public class LevelLoadManager : MonoBehaviour
     
     public static LevelLoadManager _Instance;
 
-    [SerializeField]
+    [SerializeField, ReadOnly]
     private bool isLoadingLevel = false;
 
-    [SerializeField]
+    [SerializeField, ReadOnly]
     private List<string> currentLevelList;
 
     [SerializeField]
     private List<string> levelNamesList;
+
+    [SerializeField]
+    private LoadingScreen loadingScreen;
 
     // Getters
     public List<string> LevelNamesList { get { return levelNamesList; } }
@@ -62,6 +66,7 @@ public class LevelLoadManager : MonoBehaviour
     {
         isLoadingLevel = true;
 
+        loadingScreen.gameObject.SetActive(true);
         yield return new WaitForSeconds(0.25f);
 
         // Unload all opened scenes (Not the persistent scene
@@ -77,6 +82,7 @@ public class LevelLoadManager : MonoBehaviour
 
         while (!asyncLoad.isDone)
         {
+            loadingScreen.UpdateSlider(asyncLoad.progress);
             yield return null;
         }
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneToLoad));
@@ -87,6 +93,7 @@ public class LevelLoadManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         isLoadingLevel = false;
+        loadingScreen.gameObject.SetActive(false);
 
         yield break;
     }

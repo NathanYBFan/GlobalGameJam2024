@@ -34,7 +34,7 @@ public class PlayerShooting : MonoBehaviour
 			if (Time.time >= nextFireTime)
 			{
 				GameObject firedBullet = Instantiate(bulletPrefab, fireLocation.transform.position, Quaternion.identity);
-				firedBullet.GetComponent<Bullet>().FiredBullet(playerBody.transform);
+				firedBullet.GetComponentInChildren<Bullet>().FiredBullet(playerBody.transform);
 				nextFireTime = Time.time + 1f / fireRate;
 			}
 		}

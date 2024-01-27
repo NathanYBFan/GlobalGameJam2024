@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -21,5 +19,15 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
         else if (_Instance == null)
             _Instance = this;
+    }
+
+    public void StartGame()
+    {
+        playerRootObject.SetActive(true);
+    }
+
+    public void ExitGame()
+    {
+        playerRootObject.SetActive(false);
     }
 }

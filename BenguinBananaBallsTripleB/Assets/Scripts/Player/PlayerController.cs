@@ -7,13 +7,6 @@ public class PlayerController : MonoBehaviour
 	private bool hasJumped = false;
 	public bool HasJumped { get { return hasJumped; } }
 
-	// Start is called before the first frame update
-	void Start()
-    {
-		GameManager._Instance.PlayerRootObject = this.gameObject;
-    }
-
-    // Update is called once per frame
     void Update()
     {
 		CheckMovementVector();
