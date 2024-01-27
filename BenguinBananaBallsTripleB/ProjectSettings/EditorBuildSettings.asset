@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainGame.unity
     guid: 731483f2441a54a42be719cc496dbc3a
+  - enabled: 1
+    path: Assets/Scenes/TimiPlayfield.unity
+    guid: 1456eaf4e2d458b409498a183526711c
   m_configObjects: {}
