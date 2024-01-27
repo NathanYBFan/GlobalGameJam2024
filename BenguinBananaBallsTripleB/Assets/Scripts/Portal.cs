@@ -1,14 +1,24 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 public class Portal : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject connectionPoint;
+	[Foldout("Dependencies"), Tooltip("")]
+	[SerializeField]
+	private GameObject startGoal;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!other.CompareTag("Player")) return;
+	[Foldout("Dependencies"), Tooltip("")]
+	[SerializeField]
+	private GameObject endGoal;
 
-        GameManager._Instance.PlayerRootObject.transform.position = connectionPoint.transform.position;
-    }
+
+	[Foldout("Dependencies"), Tooltip("")]
+	[SerializeField]
+	private GameObject player;
+
+	
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.CompareTag("Player")) GameManager._Instance.PlayerRootObject.transform.position = endGoal.transform.position;
+	}
 }
