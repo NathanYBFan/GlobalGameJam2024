@@ -26,7 +26,7 @@ public class PlayerShooting : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (Input.GetButtonDown("Fire1")) isFiring = true;
+		if (Input.GetButton("Fire1")) isFiring = true;
 		else isFiring = false;
 
 		if (isFiring)
