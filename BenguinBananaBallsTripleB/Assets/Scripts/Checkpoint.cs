@@ -11,6 +11,11 @@ public class Checkpoint : MonoBehaviour
 	[SerializeField]
 	[Foldout("Dependencies"), Tooltip("")]
 	private MeshRenderer mesh;
+
+	private void Start()
+	{
+		CheckpointManager._Instance.checkpointGoals.Add(gameObject);
+	}
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Player"))
