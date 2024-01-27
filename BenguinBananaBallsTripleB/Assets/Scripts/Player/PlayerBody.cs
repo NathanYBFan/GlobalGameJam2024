@@ -13,6 +13,7 @@ public class PlayerBody : MonoBehaviour
 	private int jumpHeight = 100;
 	[SerializeField]
 	private int moveSpeed = 20;	
+	public int MoveSpeed { get { return moveSpeed; } }
 	private Rigidbody rb;
 	private bool isGrounded = true, isJumping = false, hasJumped = false, isDying = false, canMove = true, flip = false;
 	private Vector3 lastCheckpoint;
