@@ -20,4 +20,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TimiPlayfield.unity
     guid: 1456eaf4e2d458b409498a183526711c
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level1.unity
+    guid: e2bb398ccc7bf3f45a121cd03a37f350
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level2.unity
+    guid: c277be76772a1994cb2d4746a624c6f1
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level3.unity
+    guid: 4d7eb4390dc978f439fd12df447918b2
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level4.unity
+    guid: 95f3129e39c60dd4ca286f8b29737fbf
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level5.unity
+    guid: 2dae12c02d296d644ad38658bd6a4f86
   m_configObjects: {}
