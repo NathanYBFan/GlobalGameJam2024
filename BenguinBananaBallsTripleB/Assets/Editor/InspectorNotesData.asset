@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd308e07fac34d709a326bdeb0fcbc0b, type: 3}
+  m_Name: InspectorNotesData
+  m_EditorClassIdentifier: Assembly-CSharp-Editor:Editor:InspectorNotesData
+  Notes:
+  - GameObjectPath: /Player/Inventory/DartPistol
+    ComponentType: Weapons.DartPistol
+    Note: Reload Time should be higher, maybe 5 (seconds). Just that for testing
+      this is easier.
+  - GameObjectPath: /Player
+    ComponentType: Core.PlayerInventory
+    Note: Need to expose more variables here
+  - GameObjectPath: /Player
+    ComponentType: Core.PlayerLocomotion
+    Note: I found these settings worked pretty well, but feel free to mess with them
+  - GameObjectPath: /Player
+    ComponentType: Input.InputManager
+    Note: No touchy, only looky
