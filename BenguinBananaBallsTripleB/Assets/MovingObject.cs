@@ -7,20 +7,25 @@ public class MovingObject : MonoBehaviour
     [SerializeField]
     private Transform stopMovingPoint;
     [SerializeField]
+    private Vector3 positionToBeAt;
+    [SerializeField]
     private float distanceUntilMove = 5;
     [SerializeField]
     private Rigidbody rb;
 
+    [SerializeField]
+    private float moveSpeed = 25f;
+
     // Update is called once per frame
     void Update()
-    {
-        if (Mathf.Abs(GameManager._Instance.PlayerRootObject.transform.position.x - transform.position.x) <= distanceUntilMove && transform.position.x < stopMovingPoint.position.x )
+	{
+		transform.position = Vector3.Lerp(transform.position, positionToBeAt, Time.deltaTime * moveSpeed);
+        if (GameManager._Instance.PlayerRootObject.transform.position.x - transform.position.x <= distanceUntilMove)
         {
-			Vector3 velocity = rb.velocity;
-			rb.velocity = (transform.right * GameManager._Instance.PlayerRootObject.transform.parent.GetComponent<PlayerController>().MovementDirection.x).normalized * GameManager._Instance.PlayerRootObject.GetComponentInChildren<PlayerBody>().MoveSpeed;
-			rb.velocity = new Vector3(rb.velocity.x, velocity.y, 0);
-
+			if (positionToBeAt.x < stopMovingPoint.position.x)
+            {
+				positionToBeAt.x = GameManager._Instance.PlayerRootObject.transform.position.x + 5;
+			}       
 		}
-        else { rb.velocity = Vector3.zero; }
     }
 }
