@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
     [SerializeField]
     private GameObject confirmMenu;
 
+    [SerializeField]
+    private GameObject hintMenuPrefab;
 
     public void PlayButtonPressed()
     {
@@ -13,13 +16,13 @@ public class MainMenuController : MonoBehaviour
         confirmMenu.SetActive(true);
     }
 
-    public void SettingsButtonPressed()
+    public void SettingsButtonPressed(GameObject spawnposition)
     {
-
+        GameObject.Instantiate(hintMenuPrefab, spawnposition.transform.position, Quaternion.identity, gameObject.transform);
     }
 
-    public void QuitButtonpressed()
+    public void RealPlayButtonPressed(string nextSceneToload)
     {
-
+        SceneManager.LoadScene(nextSceneToload, LoadSceneMode.Single);
     }
 }

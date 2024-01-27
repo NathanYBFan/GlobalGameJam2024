@@ -64,7 +64,6 @@ public class ConfirmMenuController : MonoBehaviour
 
     private void ResetConfirmMenu()
     {
-        Debug.Log("Resetting Menu");
         index = 0;
         
         buttons[0].GetComponentInChildren<TextMeshProUGUI>().text = "No";
