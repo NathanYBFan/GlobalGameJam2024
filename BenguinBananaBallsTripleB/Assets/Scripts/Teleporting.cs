@@ -7,7 +7,6 @@ public class Teleporter : MonoBehaviour
 
     public void Teleport(Vector3 position)
     {
-        Debug.Log("tp works");
         transform.position = position;
         Physics.SyncTransforms();
 
@@ -20,16 +19,8 @@ public class Teleporter : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            Debug.Log("works");
+            
             Teleport(Final_destination.position);
-        }
-    }
-
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-           Debug.Log("dd");
         }
     }
    
