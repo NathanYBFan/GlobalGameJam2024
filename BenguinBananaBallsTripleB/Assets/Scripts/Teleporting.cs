@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Teleporter : MonoBehaviour
 {
     [SerializeField]
     public Transform Final_destination;
-    //public GameObject playerg;
 
     public void Teleport(Vector3 position)
     {
