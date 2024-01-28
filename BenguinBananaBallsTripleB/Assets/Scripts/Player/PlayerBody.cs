@@ -54,7 +54,7 @@ public class PlayerBody : MonoBehaviour
 		UpdateRotations();
 		if (controller.HasJumped && isGrounded) PerformJump();
 		if (Input.GetButtonDown("Cancel")) GameManager._Instance.PauseGame();
-	}
+    }
 	private void FixedUpdate()
 	{
 		if (!canMove) return;

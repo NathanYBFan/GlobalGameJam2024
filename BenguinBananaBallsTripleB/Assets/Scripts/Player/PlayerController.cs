@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 	public Vector3 MovementDirection { get { return movementDirection; } }
 	private bool hasJumped = false;
 	public bool HasJumped { get { return hasJumped; } }
+	public Animator anim;
 
 	void Update()
 	{
@@ -18,7 +19,7 @@ public class PlayerController : MonoBehaviour
 	{
 		movementDirection = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
 
-		if (Input.GetButtonDown("Jump")) hasJumped = true;
+        if (Input.GetButtonDown("Jump")) hasJumped = true;
 		else hasJumped = false;
 	}
 }
