@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class Damage : PlayerHealth
 {
     public void TakeDamage(float dmg )

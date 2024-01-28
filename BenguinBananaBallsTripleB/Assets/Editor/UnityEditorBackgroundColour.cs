@@ -5,6 +5,7 @@ namespace Editor.Editor
 {
     public static class UnityEditorBackgroundColour
     {
+#if UNITY_EDITOR
         private static readonly Color kDefaultColour = new(0.7843f, 0.7843f, 0.7843f);
         private static readonly Color kDefaultProColour = new(0.2196f, 0.2196f, 0.2196f);
 
@@ -30,5 +31,6 @@ namespace Editor.Editor
                 return EditorGUIUtility.isProSkin ? kHoveredProColour : kHoveredColour;
             return EditorGUIUtility.isProSkin ? kDefaultProColour : kDefaultColour;
         }
+#endif
     }
 }
