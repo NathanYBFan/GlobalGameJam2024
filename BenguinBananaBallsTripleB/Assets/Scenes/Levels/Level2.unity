@@ -641,7 +641,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 50.22933, y: 0, z: 50.229362, w: 0}
+  m_margin: {x: 50.22933, y: -24.657417, z: 50.229362, w: -24.888771}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1940,7 +1940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentCanvasOfImageToMove: {fileID: 1046690059}
-  imageToMove: {fileID: 0}
+  imageToMove: {fileID: 1863947294}
 --- !u!114 &1863947300
 MonoBehaviour:
   m_ObjectHideFlags: 0
