@@ -10,9 +10,9 @@ public class ExpandUISingle : MonoBehaviour
         Vector3 newSize = transform.localScale + Vector3.one * expansionRate;
 
         // Check against the maximum Size and holds it
-        if (newSize.x <= maxSize && newSize.y <= maxSize && newSize.z <= maxSize)
-        {
+        if (newSize.x > maxSize || newSize.y > maxSize || newSize.z > maxSize)
+            transform.localScale = Vector3.one * maxSize;
+        else
             transform.localScale = newSize;
-        }
     }
 }

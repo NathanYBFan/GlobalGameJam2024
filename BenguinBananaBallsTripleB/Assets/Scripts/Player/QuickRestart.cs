@@ -7,9 +7,7 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
         if (Input.GetButton("QuickRestart"))
-        {
             resetTheGame();
-        }
     }
     public void resetTheGame()
     {
@@ -18,6 +16,6 @@ public class NewBehaviourScript : MonoBehaviour
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }
-        LevelLoadManager._Instance.StartLoadNewLevel(SceneManager.GetActiveScene().name, true);
+        GameManager._Instance.StartGame();
     }
 }

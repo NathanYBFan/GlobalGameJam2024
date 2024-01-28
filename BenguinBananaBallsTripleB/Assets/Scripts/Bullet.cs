@@ -39,9 +39,11 @@ public class Bullet : MonoBehaviour
 		if (other.CompareTag("Player")) return;
 		
 		if (other.CompareTag("UIInteractable"))
+		{
             other.GetComponent<ExpandUISingle>().ExpandUI();
+        }
 
-		else
+        else
 		{
             Damage damageComponent = other.GetComponent<Damage>();
             if (damageComponent != null)
