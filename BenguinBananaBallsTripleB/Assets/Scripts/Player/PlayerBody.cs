@@ -51,28 +51,22 @@ public class PlayerBody : MonoBehaviour
 	}
 	private void FixedUpdate()
 	{
-		if (canMove)
+		if (!canMove) return;
+		Vector3 velocity = rb.velocity;
+		rb.velocity = (transform.right * controller.MovementDirection.x).normalized * moveSpeed;
+		rb.velocity = new Vector3(rb.velocity.x, velocity.y, 0);
+
+		RaycastHit hit;
+		Debug.DrawRay(transform.position + Vector3.up * 0.1f, Vector3.down * 0.2f);
+		if (Physics.Raycast(transform.position + Vector3.up * 0.1f, Vector3.down, out hit, 1f) && !isJumping)
 		{
-			Vector3 velocity = rb.velocity;
-			rb.velocity = (transform.right * controller.MovementDirection.x).normalized * moveSpeed;
-			rb.velocity = new Vector3(rb.velocity.x, velocity.y, 0);
-
-
-			RaycastHit hit;
-			Debug.DrawRay(transform.position + Vector3.up * 0.1f, Vector3.down * 0.2f);
-			if (Physics.Raycast(transform.position + Vector3.up * 0.1f, Vector3.down, out hit, 1f) && !isJumping)
-			{
-				isGrounded = true;
-				if (hasJumped)
-				{
-					hasJumped = false;
-				}
-			}
-			else isGrounded = false;
+			isGrounded = true;
+			if (hasJumped)
+				hasJumped = false;
 		}
+		else isGrounded = false;
 
-        rb.AddForce(Vector3.down * -9.8f, ForceMode.Force);
-
+		if (controller.MovementDirection == Vector3.zero) rb.velocity = new Vector3(0, rb.velocity.y, 0);
     }
 	/// <summary>
 	/// This method makes the player jump (called in animationevent).
@@ -96,12 +90,10 @@ public class PlayerBody : MonoBehaviour
 	/// </summary>
 	private void UpdateRotations()
 	{
-
 		if (controller.MovementDirection.x > 0 && canMove) flip = false;
 		else if (controller.MovementDirection.x < 0 && canMove) flip = true;
 
 		if (flip) body.transform.rotation = Quaternion.Euler(0, 180, 0);
 		else body.transform.rotation = Quaternion.Euler(0, 0, 0);
-
 	}
 }

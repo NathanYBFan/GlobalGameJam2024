@@ -34,15 +34,16 @@ public class GameManager : MonoBehaviour
         playerRootObject.transform.parent.gameObject.SetActive(false);
     }
 
-#if UNITY_STANDALONE_WIN
+
     private void OnApplicationQuit()
     {
-        UnityEngine.Debug.Log(Application.dataPath);
-        Process p = new Process();
-        p.StartInfo.UseShellExecute = true;
-        p.StartInfo.FileName = System.IO.Path.GetDirectoryName(Application.dataPath) + "..\\BenguinBananaBallsTripleB.exe";
-        p.Start();
-        p.Start();
+        #if UNITY_STANDALONE_WIN
+            UnityEngine.Debug.Log(Application.dataPath);
+            Process p = new Process();
+            p.StartInfo.UseShellExecute = true;
+            p.StartInfo.FileName = System.IO.Path.GetDirectoryName(Application.dataPath) + "..\\BenguinBananaBallsTripleB.exe";
+            p.Start();
+            p.Start();
+        #endif
     }
-#endif
 }
