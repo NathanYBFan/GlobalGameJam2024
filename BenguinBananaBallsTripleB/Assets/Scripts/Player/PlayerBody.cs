@@ -72,12 +72,13 @@ public class PlayerBody : MonoBehaviour
 		}
 		else isGrounded = false;
 
-		if (controller.MovementDirection == Vector3.zero) rb.velocity = new Vector3(0, rb.velocity.y, 0);
-    }
-	/// <summary>
-	/// This method makes the player jump (called in animationevent).
-	/// </summary>
-	private void PerformJump()
+		if (controller.MovementDirection == Vector3.zero)
+			rb.velocity = new Vector3(0, rb.velocity.y, 0);
+	}
+        /// <summary>
+        /// This method makes the player jump (called in animationevent).
+        /// </summary>
+        private void PerformJump()
 	{
 		isJumping = true;
 		anim.SetTrigger("IsJumping");

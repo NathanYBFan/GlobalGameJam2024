@@ -15,9 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/LevelSelect.unity
     guid: 7c38cfb788ae9a744955fd3bac83494a
   - enabled: 1
-    path: Assets/Scenes/TimiPlayfield.unity
-    guid: 1456eaf4e2d458b409498a183526711c
-  - enabled: 1
     path: Assets/Scenes/Levels/Level1.unity
     guid: e2bb398ccc7bf3f45a121cd03a37f350
   - enabled: 1
