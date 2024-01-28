@@ -52,9 +52,18 @@ public class PlayerBody : MonoBehaviour
 	void Update()
 	{
 		UpdateRotations();
+		UpdateAnimations();
 		if (controller.HasJumped && isGrounded) PerformJump();
 		if (Input.GetButtonDown("Cancel")) GameManager._Instance.PauseGame();
     }
+	void UpdateAnimations()
+	{
+		if (controller.MovementDirection.x != 0)
+		{
+			anim.SetBool("IsWalking", true);
+		}
+		else anim.SetBool("IsWalking", false);
+	}
 	private void FixedUpdate()
 	{
 		if (!canMove) return;
