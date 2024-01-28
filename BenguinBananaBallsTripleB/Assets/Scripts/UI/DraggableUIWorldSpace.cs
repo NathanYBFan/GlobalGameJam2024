@@ -18,6 +18,6 @@ public class DraggableUIWorldSpace : MonoBehaviour, IDragHandler
 
     public void OnDrag(PointerEventData data)
     {
-        imageToMove.transform.position += (Vector3) data.delta * Time.deltaTime;
+        imageToMove.transform.position += (Vector3) data.delta * Time.deltaTime  * 6;
     }
 }
