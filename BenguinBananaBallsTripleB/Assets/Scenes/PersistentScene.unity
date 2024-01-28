@@ -210,7 +210,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &245438529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 082e1dabe83849447b38ba27b135ae4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inverted: 0
 --- !u!4 &245438531
 Transform:
   m_ObjectHideFlags: 0
@@ -1192,8 +1191,8 @@ GameObject:
   - component: {fileID: 1120000966}
   - component: {fileID: 1120000968}
   - component: {fileID: 1120000967}
-  - component: {fileID: 1120000969}
   - component: {fileID: 1120000970}
+  - component: {fileID: 1120000971}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1259,7 +1258,24 @@ MonoBehaviour:
   body: {fileID: 90338245}
   jumpHeight: 20
   moveSpeed: 8
---- !u!136 &1120000969
+--- !u!114 &1120000970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120000965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddcf1d3a2e50499428c0078e3cc4825a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  MaxhitPoints: 3
+  hearts: []
+  fullheart: {fileID: 21300000, guid: 9630b46b4947f5c4ba9c4152bb1044c2, type: 3}
+  emptyheart: {fileID: 21300000, guid: 5fa100239b75fd14e93091a556e66ddb, type: 3}
+--- !u!136 &1120000971
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1278,27 +1294,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 0.325
+  m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &1120000970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120000965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddcf1d3a2e50499428c0078e3cc4825a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  MaxhitPoints: 3
-  hearts: []
-  fullheart: {fileID: 21300000, guid: 9630b46b4947f5c4ba9c4152bb1044c2, type: 3}
-  emptyheart: {fileID: 21300000, guid: 5fa100239b75fd14e93091a556e66ddb, type: 3}
+  m_Center: {x: 0, y: 0.95, z: 0}
 --- !u!1 &1190031510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,41 +1559,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329470060}
   m_CullTransparentMesh: 1
---- !u!1 &1369027834 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f06050b2bf7ed144f9f4fce345212559,
-    type: 3}
-  m_PrefabInstance: {fileID: 1700803381}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1369027835 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f06050b2bf7ed144f9f4fce345212559,
     type: 3}
   m_PrefabInstance: {fileID: 1700803381}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &1369027836
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369027834}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Height: 7.5
-  m_Direction: 1
-  m_Center: {x: 0, y: 3.25, z: 0}
 --- !u!1 &1406339398
 GameObject:
   m_ObjectHideFlags: 0
@@ -2086,11 +2056,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f06050b2bf7ed144f9f4fce345212559,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1369027836}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f06050b2bf7ed144f9f4fce345212559, type: 3}
 --- !u!1 &1786836027
 GameObject:
