@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject playerRootObject;
 
+    [SerializeField]
+    private GameObject pauseMenu;
+
     public bool InGame { get { return inGame; } set { inGame = value; } }
     public GameObject PlayerRootObject { get { return playerRootObject; } set {  playerRootObject = value; } }
 
@@ -32,6 +35,20 @@ public class GameManager : MonoBehaviour
     {
         playerRootObject.transform.position = Vector3.zero;
         playerRootObject.transform.parent.gameObject.SetActive(false);
+    }
+
+    public void PauseGame()
+    {
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+            pauseMenu.SetActive(false);
+        }
+        else
+        {
+            Time.timeScale = 0;
+            pauseMenu.SetActive(true);
+        }
     }
 
     //private void OnApplicationQuit()
