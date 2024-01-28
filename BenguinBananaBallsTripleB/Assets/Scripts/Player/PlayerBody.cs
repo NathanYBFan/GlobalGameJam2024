@@ -7,6 +7,10 @@ public class PlayerBody : MonoBehaviour
 
 	[SerializeField]
 	private GameObject body;
+
+	[SerializeField]
+	private Animator anim;
+
 	private PlayerController controller;
 	[Header("Parameters")]
 	[SerializeField]
@@ -40,6 +44,7 @@ public class PlayerBody : MonoBehaviour
 
 	public void Death()
 	{
+		anim.SetTrigger("IsDead");
 		transform.position = lastCheckpoint;
 		flip = false;
 	}
@@ -75,6 +80,7 @@ public class PlayerBody : MonoBehaviour
 	private void PerformJump()
 	{
 		isJumping = true;
+		anim.SetTrigger("IsJumping");
 		rb.AddForce(Vector3.up * jumpHeight * rb.mass, ForceMode.Impulse);
 		Invoke("ResetJump", 0.45f);
 	}

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -216,7 +216,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &245438529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,6 +233,7 @@ MonoBehaviour:
   playerBody: {fileID: 90338245}
   bulletPrefab: {fileID: 3747706387829126996, guid: ce54a2284ef56204ea94bc23d486fd08,
     type: 3}
+  anim: {fileID: 1369027836}
 --- !u!114 &245438530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1262,6 +1263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 90338245}
+  anim: {fileID: 1369027836}
   jumpHeight: 20
   moveSpeed: 8
 --- !u!114 &1120000970

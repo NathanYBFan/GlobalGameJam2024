@@ -11,33 +11,24 @@ public class PlayerShooting : MonoBehaviour
 	private GameObject playerBody;
 	[SerializeField]
 	private GameObject bulletPrefab;
-
+	[SerializeField]
+	private Animator anim;
 
 	bool isFiring = false;
 	float nextFireTime = 0f;
 	float fireRate = 4;
 
-	// Start is called before the first frame update
-	void Start()
-	{
-
-	}
-
 	// Update is called once per frame
 	void Update()
 	{
-		if (Input.GetButton("Fire1")) isFiring = true;
-		else isFiring = false;
+		isFiring = Input.GetButton("Fire1");
 
-		if (isFiring)
-		{
-			if (Time.time >= nextFireTime)
-			{
-				GameObject firedBullet = Instantiate(bulletPrefab, fireLocation.transform.position, Quaternion.identity);
-				firedBullet.GetComponentInChildren<Bullet>().FiredBullet(playerBody.transform);
-				nextFireTime = Time.time + 1f / fireRate;
-			}
-		}
-
+		if (!isFiring) return;
+		if (Time.time < nextFireTime) return;
+	
+		anim.SetTrigger("IsShooting");
+		GameObject firedBullet = Instantiate(bulletPrefab, fireLocation.transform.position, Quaternion.identity);
+		firedBullet.GetComponentInChildren<Bullet>().FiredBullet(playerBody.transform);
+		nextFireTime = Time.time + 1f / fireRate;
 	}
 }
