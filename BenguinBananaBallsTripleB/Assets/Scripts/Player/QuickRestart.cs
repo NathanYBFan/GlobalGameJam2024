@@ -18,6 +18,6 @@ public class NewBehaviourScript : MonoBehaviour
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        LevelLoadManager._Instance.StartLoadNewLevel(SceneManager.GetActiveScene().name, true);
     }
 }
